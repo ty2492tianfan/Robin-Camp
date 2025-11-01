@@ -2,7 +2,7 @@
 
 docker-up:
 	docker compose up -d --build
-	@echo "the server "
+	@echo "Everything is ready "
 
 docker-down:
 	docker compose down -v
