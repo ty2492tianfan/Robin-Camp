@@ -8,7 +8,7 @@
 - 在此次项目中 我选择了PostgresSql作为本项目的数据库， 因为过去我有过Postgressql的经验，对此数据库较为熟悉
 所以选择postgressql. 
 ### Movie Table
-'''sql
+```sql
 CREATE TABLE IF NOT EXISTS movies (
     id  BIGSERIAL PRIMARY KEY,   
     title TEXT NOT NULL UNIQUE,  
@@ -19,10 +19,10 @@ CREATE TABLE IF NOT EXISTS movies (
     mpa_rating TEXT,               
     box_office  JSONB              
 );
-'''
+```
 
 ### Rating Table
-'''sql
+```sql
 CREATE TABLE IF NOT EXISTS ratings (
     id  BIGSERIAL PRIMARY KEY,           -- 自增, 评论id
     movie_id  BIGINT NOT NULL REFERENCES movies(id) ON DELETE CASCADE,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS ratings (
     CHECK (rating IN (0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0)),
     UNIQUE(movie_id, rater_id)
 );
-'''
+```
 
 ## 后端服务选型
 选择go语言和gin 进行开发 gin可以简化很多的任务， 我初次接触go 语言， 便选择 官方教程使用go 和gin开发Api
